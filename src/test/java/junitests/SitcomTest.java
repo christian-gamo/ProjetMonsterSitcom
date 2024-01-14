@@ -61,7 +61,7 @@ public class SitcomTest
     public void setUp() // throws java.lang.Exception
     {
         Netflix = new StreamingPlatform();
-        Netflix.setnom("Netflix");
+        Netflix.setNom("Netflix");
         friends = new Sitcom();
         friends.setNbSaisons(7);
         friends.setPaysOrigine("Etats-Unis");

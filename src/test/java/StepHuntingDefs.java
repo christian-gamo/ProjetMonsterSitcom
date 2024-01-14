@@ -3,10 +3,7 @@ import actors.Monstre;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 
-
-
 public class StepHuntingDefs {
-
     private Monstre mizutsune = new Monstre("Mizutsune", "Bulles", 1);
     private Chasseur darlene = new Chasseur("Darlène", 0, mizutsune);
 
@@ -17,14 +14,13 @@ public class StepHuntingDefs {
         Assert.assertEquals(1, mizutsune.getPopulation());
     }
 
-
     @When("darlene chasse le mizutsune")
     public void darleneChasseLeMizutsune() {
         darlene.partirEnChasse();
     }
 
     @Then("la population de mizutsune diminue de {int}")
-    public void laPopulationDeMizutsuneDiminueDe(int arg0) {
+    public void laPopulationDeMizutsUneDiminueDe(int arg0) {
         Assert.assertEquals(1, darlene.getCptMonstresChasses());
         Assert.assertEquals(0, mizutsune.getPopulation());
     }

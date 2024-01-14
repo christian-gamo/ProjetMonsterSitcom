@@ -21,12 +21,12 @@ public class StreamingPlatform
         return availableSitcom;
     }
 
-    public void setnom(String nom){
+    public void setNom(String nom){
 
         this.nom = nom;
     }
 
-    public String getnom(){
+    public String getNom(){
 
         return this.nom;
 
@@ -34,7 +34,7 @@ public class StreamingPlatform
 
     public String countriesAvailableOn(Sitcom sitcom){
 
-        String message = sitcom.getPlatformAvailable().getnom() + " propose des sitcoms venant du pays suivant: " + sitcom.getPaysOrigine();
+        String message = sitcom.getPlatformAvailable().getNom() + " propose des sitcoms venant du pays suivant: " + sitcom.getPaysOrigine();
 
         return message;
 

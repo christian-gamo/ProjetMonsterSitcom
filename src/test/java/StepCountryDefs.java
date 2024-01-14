@@ -2,21 +2,21 @@ import io.cucumber.java.en.*;
 import org.junit.Assert;
 import sitcom.Sitcom;
 
-public class MyStepdefs {
-    private Sitcom sc = new Sitcom();
+public class StepCountryDefs {
+    private Sitcom sitcom = new Sitcom();
     @Given("^une sitcom$")
-    public void une_sitcom(){
-        Assert.assertTrue(this.sc !=null);
+    public void uneSitcom(){
+        Assert.assertTrue(this.sitcom !=null);
     }
 
     @And("^la sitcom a un \"([^\"]*)\"$")
-    public void la_sitcom_a_un(String paysOrigine){
-        this.sc.setPaysOrigine(paysOrigine);
+    public void laSitcomAUn(String paysOrigine){
+        this.sitcom.setPaysOrigine(paysOrigine);
     }
 
     @When("^le visionneur demande \"([^\"]*)\"$")
-    public void le_visionneur_demande(String pays0rigine){
-        Assert.assertEquals(this.sc.getPaysOrigine(),pays0rigine);
+    public void leVisionneurDemande(String pays0rigine){
+        Assert.assertEquals(this.sitcom.getPaysOrigine(),pays0rigine);
 
     }
 
