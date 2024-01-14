@@ -1,5 +1,8 @@
 package sitcom;
 
+import actors.Actor;
+import java.util.*;
+
 /**
  * Décrivez votre classe Sitcom ici.
  *
@@ -9,8 +12,10 @@ package sitcom;
 public class Sitcom
 {
     // variables d'instance
+    private String nom;
     private String paysOrigine;
     private int nbSaisons;
+    private List<Actor> acteurs;
 
     private StreamingPlatform platformAvailable;
 
@@ -33,14 +38,20 @@ public class Sitcom
         this.nbSaisons = nbSaisons;
     }
 
-
     public void setPlatformAvailable(StreamingPlatform platform){
 
         this.platformAvailable = platform;
     }
-
     public StreamingPlatform getPlatformAvailable(){
         return this.platformAvailable;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     public int sitcomRenewed()
@@ -52,8 +63,17 @@ public class Sitcom
 
     public void printAttributes(){
 
+        
         System.out.println("Nombre de saisons:" + this.getNbSaisons());
         System.out.println("Pays d'origine:" + this.getPaysOrigine());
+    }
+
+    public List<Actor> getActeurs() {
+        return acteurs;
+    }
+
+    public void setActeurs(List<Actor> acteurs) {
+        this.acteurs = acteurs;
     }
 }
 

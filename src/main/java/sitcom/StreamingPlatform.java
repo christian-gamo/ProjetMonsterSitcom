@@ -8,10 +8,23 @@ package sitcom;
  */
 public class StreamingPlatform
 {
+    //singleton
+    private static StreamingPlatform instance;
+
     // variables d'instance
     private String nom;
     private Sitcom availableSitcom = new Sitcom();
 
+    public static StreamingPlatform getInstance(){
+        if(instance == null){
+            instance = new StreamingPlatform("Netflix");
+        }
+        return instance;
+    }
+
+    private StreamingPlatform(String nom){
+        this.nom = nom;
+    }
 
     public void setAvailableSitcom(Sitcom availableSitcom) {
         this.availableSitcom = availableSitcom;

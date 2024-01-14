@@ -2,11 +2,17 @@ package junitests;
 
 import static org.junit.Assert.*;
 
+import actors.Actor;
+import actors.Chasseur;
+import actors.Monstre;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import sitcom.Sitcom;
 import sitcom.StreamingPlatform;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Classe-test junitests.SitcomTest.
@@ -34,8 +40,10 @@ import sitcom.StreamingPlatform;
  */
 public class SitcomTest
 {
-    private StreamingPlatform Netflix;
+    private StreamingPlatform netflix;
     private Sitcom friends;
+
+    private Sitcom mhSitcom1;
 
     // Définissez ici les variables d'instance nécessaires à vos engagements;
     // Vous pouvez également les saisir automatiquement du présentoir
@@ -60,14 +68,32 @@ public class SitcomTest
     @Before
     public void setUp() // throws java.lang.Exception
     {
-        Netflix = new StreamingPlatform();
-        Netflix.setNom("Netflix");
+        netflix = StreamingPlatform.getInstance();
         friends = new Sitcom();
         friends.setNbSaisons(7);
         friends.setPaysOrigine("Etats-Unis");
-        friends.setPlatformAvailable(Netflix);
-        Netflix.setAvailableSitcom(friends);
+        friends.setPlatformAvailable(netflix);
+        friends.setNom("Friends");
+        netflix.setAvailableSitcom(friends);
+        netflix.setNom("Netflix");
 
+        mhSitcom1 = new Sitcom();
+        mhSitcom1.setNom("Monster Hunter Friends");
+        mhSitcom1.setNbSaisons(2);
+        mhSitcom1.setPaysOrigine("Japon");
+        mhSitcom1.setPlatformAvailable(netflix);
+
+        List<Actor> acteursMH = new ArrayList<Actor>();
+
+        Monstre mizutsune = new Monstre("Mizutsune", "Bulles", 1);
+
+        acteursMH.add(mizutsune);
+        acteursMH.add(new Chasseur("Darlène", 0, mizutsune));
+        acteursMH.add(new Chasseur("Christian", 0, mizutsune));
+        acteursMH.add(new Chasseur("Marine", 0, mizutsune));
+        acteursMH.add(new Chasseur("Lucy", 0, mizutsune));
+
+        mhSitcom1.setActeurs(acteursMH);
     }
 
     /**
@@ -91,20 +117,29 @@ public class SitcomTest
     @Test
     public void testCountriesAvailableOn()
     {
-        assertEquals("Netflix propose des sitcoms venant du pays suivant: Etats-Unis", Netflix.countriesAvailableOn(friends));
+        assertEquals("Netflix propose des sitcoms venant du pays suivant: Etats-Unis", netflix.countriesAvailableOn(friends));
     }
 
     @Test
     public void testAssociationBidirectionnelle(){
 
-        assertEquals(friends, Netflix.getAvailableSitcom());
-        assertEquals(Netflix, friends.getPlatformAvailable());
+        assertEquals(friends, netflix.getAvailableSitcom());
+        assertEquals(netflix, friends.getPlatformAvailable());
     }
 
     @Test
     public void testGetNombreSaisons(){
         assertEquals(7, friends.getNbSaisons());
-        friends.printAttributes();
+    }
+
+    @Test
+    public void testGetNom(){
+        assertEquals("Friends", friends.getNom());
+    }
+
+    @Test
+    public void testGetActeurs(){
+        assertEquals("Darlène", friends.getNom());
     }
 
 }
