@@ -30,9 +30,7 @@ public class Sitcom
     }
 
     public void setNbSaisons(int nbSaisons){
-
         this.nbSaisons = nbSaisons;
-
     }
 
 

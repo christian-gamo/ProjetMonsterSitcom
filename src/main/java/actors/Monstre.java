@@ -20,6 +20,17 @@ public class Monstre implements Actor
         }
     }
 
+    public Monstre(Object[] data)
+    {
+        this.nom = (String) data[0];
+        this.capaciteFetiche = (String) data[1];
+        this.population = (int) data[2];
+
+        if(population == 0){
+            this.voieExtinction = true;
+        }
+    }
+
     public int getPopulation(){
         return this.population;
     }
@@ -39,6 +50,10 @@ public class Monstre implements Actor
 
     @Override
     public String dialogue(String ligne) {
-        return ligne;
+        StringBuilder str = new StringBuilder();
+        str.append("GROAR GROAR !('");
+        str.append(ligne);
+        str.append("')");
+        return str.toString();
     }
 }

@@ -1,7 +1,7 @@
 package actors;
 
 
-public class Chasseur
+public class Chasseur implements Actor
 {
 
     private String nom;
@@ -14,6 +14,13 @@ public class Chasseur
         this.nom = nom;
         this.cptMonstresChasses = cptMonstresChasses;
         this.monstreChoisi = monstreChoisi;
+    }
+
+    public Chasseur(Object[] data)
+    {
+        this.nom = (String) data[0];
+        this.cptMonstresChasses = (int) cptMonstresChasses;
+        this.monstreChoisi = (Monstre) monstreChoisi;
     }
 
     public int getCptMonstresChasses(){
@@ -31,5 +38,10 @@ public class Chasseur
     public void partirEnChasse(){
         monstreChoisi.estChasse();
         this.cptMonstresChasses +=1;
+    }
+
+    @Override
+    public String dialogue(String ligne) {
+        return ligne;
     }
 }
