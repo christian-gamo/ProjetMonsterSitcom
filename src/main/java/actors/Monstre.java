@@ -1,6 +1,6 @@
 package actors;
 
-public class Monstre
+public class Monstre implements Actor
 {
 
     private String nom;
@@ -37,4 +37,8 @@ public class Monstre
         return population;
     }
 
+    @Override
+    public String dialogue(String ligne) {
+        return ligne;
+    }
 }
