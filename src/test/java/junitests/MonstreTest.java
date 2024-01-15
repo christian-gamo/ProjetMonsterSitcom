@@ -1,5 +1,6 @@
 package junitests;
 
+import actors.ActorFactory;
 import actors.Monstre;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -103,5 +104,22 @@ public class MonstreTest
         assertEquals(0, goreMagala.estChasse());
         assertTrue(goreMagala.getVoieExtinction());
     }
+
+    @Test
+    public void testConstructorExtinction()
+    {
+        Object[] data0 = {"Mizutsune", "Bulles", 0};
+        Monstre mizutsune = (Monstre) ActorFactory.getActor("Monstre", data0);
+
+        assert mizutsune != null;
+        assertTrue(mizutsune.getVoieExtinction());
+        assertEquals(0,mizutsune.getPopulation());
+
+        Monstre rathalos = new Monstre("Rathalos", "Boules de feu", 0);
+        assertTrue(rathalos.getVoieExtinction());
+        assertEquals(0,rathalos.getPopulation());
+    }
+
+
 }
 

@@ -154,6 +154,14 @@ public class SitcomTest
         assertEquals("Lucy", acteurs.get(4).getNom());
     }
 
+    @Test
+    public void testActorNull(){
+        Object[] data0 = {"Test"};
+        assertNull(ActorFactory.getActor("test", data0));
+    }
+
+
+
 }
 
 
