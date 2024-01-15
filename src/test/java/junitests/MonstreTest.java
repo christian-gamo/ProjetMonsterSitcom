@@ -17,6 +17,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class MonstreTest
 {
 
+    Monstre goreMagala = new Monstre();
+
     /**
      * Default constructor for test class junitests.MonstreTest
      */
@@ -26,7 +28,6 @@ public class MonstreTest
 
     /**
      * Sets up the test fixture.
-     *
      * Called before every test case method.
      */
     @BeforeEach
@@ -37,7 +38,6 @@ public class MonstreTest
 
     /**
      * Tears down the test fixture.
-     *
      * Called after every test case method.
      */
     @AfterEach
@@ -46,11 +46,62 @@ public class MonstreTest
     }
 
     @Test
+    public void testGetCapaciteFetiche() {
+        String expected = "Frenzy Virus";
+        String actual = goreMagala.getCapaciteFetiche();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSetCapaciteFetiche() {
+        String expected = "Evolution";
+        goreMagala.setCapaciteFetiche(expected);
+        String actual = goreMagala.getCapaciteFetiche();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetPopulation() {
+        int expected = 1;
+        int actual = goreMagala.getPopulation();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSetPopulation() {
+        int expected = 5;
+        goreMagala.setPopulation(expected);
+        int actual = goreMagala.getPopulation();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetVoieExtinction() {
+        boolean expected = false;
+        boolean actual = goreMagala.getVoieExtinction();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSetVoieExtinction() {
+        boolean expected = true;
+        goreMagala.setVoieExtinction(expected);
+        boolean actual = goreMagala.getVoieExtinction();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetNom() {
+        String expected = "Gore Magala";
+        String actual = goreMagala.getNom();
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void testEstChasse()
     {
-        Monstre monstre1 = new Monstre("Mizutsune", "Bulles", 1);
-        assertEquals(0, monstre1.estChasse());
-        assertTrue(monstre1.getVoieExtinction());
+        assertEquals(0, goreMagala.estChasse());
+        assertTrue(goreMagala.getVoieExtinction());
     }
 }
 

@@ -17,6 +17,8 @@ import org.junit.jupiter.api.Test;
  */
 public class ChasseurTest
 {
+    private final Chasseur john = new Chasseur();
+
     private Monstre mizutsune;
     private Chasseur darlene;
 
@@ -29,7 +31,6 @@ public class ChasseurTest
 
     /**
      * Sets up the test fixture.
-     *
      * Called before every test case method.
      */
     @BeforeEach
@@ -41,13 +42,43 @@ public class ChasseurTest
 
     /**
      * Tears down the test fixture.
-     *
      * Called after every test case method.
      */
     @AfterEach
     public void tearDown()
     {
     }
+
+    @Test
+    public void testGetCptMonstresChasses() {
+        int expected = 0;
+        int actual = john.getCptMonstresChasses();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSetCptMonstresChasses() {
+        int expected = 5;
+        john.setCptMonstresChasses(expected);
+        int actual = john.getCptMonstresChasses();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetMonstreChoisi() {
+        Monstre expected = new Monstre("Rathalos", "Boules de feu", 100);
+        Monstre actual = john.getMonstreChoisi();
+        assertEquals(expected.getNom(), actual.getNom());
+    }
+
+    @Test
+    public void testSetMonstreChoisi() {
+        Monstre expected = new Monstre("Diablos", "Charge", 120);
+        john.setMonstreChoisi(expected);
+        Monstre actual = john.getMonstreChoisi();
+        assertEquals(expected, actual);
+    }
+
 
     @Test
     public void testPartirEnChasse()
@@ -58,6 +89,13 @@ public class ChasseurTest
         assertEquals(1, darlene.getCptMonstresChasses());
         assertEquals(0, mizutsune.getPopulation());
         assertTrue(mizutsune.getVoieExtinction());
+    }
+
+    @Test
+    public void testGetNom() {
+        String expected = "John";
+        String actual = john.getNom();
+        assertEquals(expected, actual);
     }
 
     @Test

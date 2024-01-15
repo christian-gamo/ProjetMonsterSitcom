@@ -3,11 +3,15 @@ package actors;
 public class Monstre implements Actor
 {
 
-    private String nom;
-    private String capaciteFetiche;
+    private String nom = "Gore Magala";
+    private String capaciteFetiche = "Frenzy Virus";
 
-    private int population;
+    private int population = 1;
     private boolean voieExtinction;
+
+    public Monstre()
+    {
+    }
 
     public Monstre(String nom, String capaciteFetiche, int population)
     {
@@ -31,14 +35,39 @@ public class Monstre implements Actor
         }
     }
 
+    public String getCapaciteFetiche() {
+        return capaciteFetiche;
+    }
+    public void setCapaciteFetiche(String capaciteFetiche) {
+        this.capaciteFetiche = capaciteFetiche;
+    }
     public int getPopulation(){
         return this.population;
+    }
+
+    public void setPopulation(int population) {
+        this.population = population;
     }
 
     public boolean getVoieExtinction(){
         return this.voieExtinction;
     }
 
+    public void setVoieExtinction(boolean voieExtinction) {
+        this.voieExtinction = voieExtinction;
+    }
+
+    @Override
+    public String getNom() {
+        return nom;
+    }
+
+    @Override
+    public String dialogue(String ligne) {
+        return "GROAR GROAR !('" +
+                ligne +
+                "')";
+    }
 
     public int estChasse(){
         this.population-=1;
@@ -46,19 +75,5 @@ public class Monstre implements Actor
             this.voieExtinction = true;
         }
         return population;
-    }
-
-    @Override
-    public String dialogue(String ligne) {
-        StringBuilder str = new StringBuilder();
-        str.append("GROAR GROAR !('");
-        str.append(ligne);
-        str.append("')");
-        return str.toString();
-    }
-
-    @Override
-    public String getNom() {
-        return nom;
     }
 }

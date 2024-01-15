@@ -1,7 +1,7 @@
 package actors;
 
 public interface Actor {
-    public String dialogue(String ligne);
+    String dialogue(String ligne);
 
     String getNom();
 }

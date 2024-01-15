@@ -1,9 +1,9 @@
-Feature: Le spectateur Christian ?
-  En tant spectateur Christian
-  Je veux connaître la nature des acteurs de la sitcom
-  Afin que je puisse connaitre davantage ma série
+Feature: Le spectateur Christian est curieux
+  En tant qu'acteur Christian
+  Je veux connaître le premier monstre qui apparait dans la nouvelle sitcom
+  Afin que je puisse préparer mes scènes
 
-  Scenario: Christian connait la nature des acteurs
-    Given Christian
-    When Christian demande quelle est la nature des acteurs de la série
-    Then renvoie la nature de l'acteur de la série
+  Scenario: Christian souhaite connaître le monstre prévu au premier épisode (Khezu)
+    Given Christian et une nouvelle sitcom intitulé Monster Hunter Friends
+    When Christian demande qui est le premier monstre qui apparaît dans la sitcom
+    Then Christian reçoit comme réponse le Khezu

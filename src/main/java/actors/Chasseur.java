@@ -4,10 +4,15 @@ package actors;
 public class Chasseur implements Actor
 {
 
-    private String nom;
+    private String nom = "John";
 
-    private int cptMonstresChasses;
-    private Monstre monstreChoisi;
+    private int cptMonstresChasses = 0;
+    private Monstre monstreChoisi = new Monstre("Rathalos", "Boules de feu", 100);
+
+
+    public Chasseur()
+    {
+    }
 
     public Chasseur(String nom, int cptMonstresChasses, Monstre monstreChoisi)
     {
@@ -19,12 +24,16 @@ public class Chasseur implements Actor
     public Chasseur(Object[] data)
     {
         this.nom = (String) data[0];
-        this.cptMonstresChasses = (int) cptMonstresChasses;
-        this.monstreChoisi = (Monstre) monstreChoisi;
+        this.cptMonstresChasses = (int) data[1];
+        this.monstreChoisi = (Monstre) data[2];
     }
 
     public int getCptMonstresChasses(){
         return this.cptMonstresChasses;
+    }
+
+    public void setCptMonstresChasses(int cptMonstresChasses){
+        this.cptMonstresChasses = cptMonstresChasses;
     }
 
     public Monstre getMonstreChoisi(){
@@ -35,10 +44,6 @@ public class Chasseur implements Actor
         this.monstreChoisi = monstreChoisi;
     }
 
-    public void partirEnChasse(){
-        monstreChoisi.estChasse();
-        this.cptMonstresChasses +=1;
-    }
 
     @Override
     public String dialogue(String ligne) {
@@ -48,5 +53,10 @@ public class Chasseur implements Actor
     @Override
     public String getNom() {
         return nom;
+    }
+
+    public void partirEnChasse(){
+        monstreChoisi.estChasse();
+        this.cptMonstresChasses +=1;
     }
 }

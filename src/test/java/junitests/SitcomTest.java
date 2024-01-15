@@ -3,7 +3,7 @@ package junitests;
 import static org.junit.Assert.*;
 
 import actors.Actor;
-import actors.Chasseur;
+import actors.ActorFactory;
 import actors.Monstre;
 import org.junit.After;
 import org.junit.Before;
@@ -77,21 +77,27 @@ public class SitcomTest
         netflix.setAvailableSitcom(friends);
         netflix.setNom("Netflix");
 
+
         mhSitcom1 = new Sitcom();
         mhSitcom1.setNom("Monster Hunter Friends");
         mhSitcom1.setNbSaisons(2);
         mhSitcom1.setPaysOrigine("Japon");
         mhSitcom1.setPlatformAvailable(netflix);
 
+        Object[] data0 = {"Mizutsune", "Bulles", 1};
+        Monstre mizutsune = (Monstre) ActorFactory.getActor("Monstre", data0);
+
+        Object[] data1 = {"Darlène", 0, mizutsune};
+        Object[] data2 = {"Christian", 0, mizutsune};
+        Object[] data3 = {"Marine", 0, mizutsune};
+        Object[] data4 = {"Lucy", 0, mizutsune};
+
         List<Actor> acteursMH = new ArrayList<Actor>();
-
-        Monstre mizutsune = new Monstre("Mizutsune", "Bulles", 1);
-
         acteursMH.add(mizutsune);
-        acteursMH.add(new Chasseur("Darlène", 0, mizutsune));
-        acteursMH.add(new Chasseur("Christian", 0, mizutsune));
-        acteursMH.add(new Chasseur("Marine", 0, mizutsune));
-        acteursMH.add(new Chasseur("Lucy", 0, mizutsune));
+        acteursMH.add(ActorFactory.getActor("Chasseur",data1));
+        acteursMH.add(ActorFactory.getActor("Chasseur",data2));
+        acteursMH.add(ActorFactory.getActor("Chasseur",data3));
+        acteursMH.add(ActorFactory.getActor("Chasseur",data4));
 
         mhSitcom1.setActeurs(acteursMH);
     }
@@ -110,8 +116,9 @@ public class SitcomTest
     @Test
     public void testsitcomRenewed()
     {
-        Sitcom Friends = new Sitcom();
-        Friends.sitcomRenewed();
+        Sitcom friends = new Sitcom();
+        int seasons = friends.getNbSaisons();
+        assertEquals(friends.sitcomRenewed(),seasons+1);
     }
 
     @Test

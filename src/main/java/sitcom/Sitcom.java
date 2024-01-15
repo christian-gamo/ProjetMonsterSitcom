@@ -61,12 +61,6 @@ public class Sitcom
         return this.nbSaisons;
     }
 
-    public void printAttributes(){
-
-        
-        System.out.println("Nombre de saisons:" + this.getNbSaisons());
-        System.out.println("Pays d'origine:" + this.getPaysOrigine());
-    }
 
     public List<Actor> getActeurs() {
         return acteurs;
