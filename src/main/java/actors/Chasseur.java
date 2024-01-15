@@ -44,4 +44,9 @@ public class Chasseur implements Actor
     public String dialogue(String ligne) {
         return ligne;
     }
+
+    @Override
+    public String getNom() {
+        return nom;
+    }
 }

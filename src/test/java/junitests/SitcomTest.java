@@ -139,6 +139,10 @@ public class SitcomTest
 
     @Test
     public void testGetActeurs(){
+        List<Actor> acteurs = mhSitcom1.getActeurs();
+        assertEquals("Darlène", acteurs.get(0).getNom());
+        assertEquals("Christian", friends.getNom());
+        assertEquals("Darlène", friends.getNom());
         assertEquals("Darlène", friends.getNom());
     }
 

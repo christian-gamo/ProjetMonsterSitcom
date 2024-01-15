@@ -7,5 +7,11 @@ import actors.Monstre;
 public class StepSitcomMHDefs {
     @Given("Christian veut chasser le mizutsune")
     public void christianVeutChasserLeMizutsune() {
+        Object data[] = new Object[0];
+        new Monstre(data);
+        new Chasseur(data);
+        new Sitcom();
+        StreamingPlatform.getInstance();
+
     }
 }

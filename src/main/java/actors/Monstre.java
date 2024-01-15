@@ -56,4 +56,9 @@ public class Monstre implements Actor
         str.append("')");
         return str.toString();
     }
+
+    @Override
+    public String getNom() {
+        return nom;
+    }
 }
