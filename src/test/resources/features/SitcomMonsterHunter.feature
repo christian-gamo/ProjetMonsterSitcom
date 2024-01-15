@@ -1,4 +1,4 @@
-Feature: Comment chasser un monstre selon Christian ?
+Feature: Le spectateur Christian ?
   En tant spectateur Christian
   Je veux connaître la nature des acteurs de la sitcom
   Afin que je puisse connaitre davantage ma série

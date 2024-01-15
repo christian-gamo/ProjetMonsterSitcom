@@ -59,5 +59,12 @@ public class ChasseurTest
         assertEquals(0, mizutsune.getPopulation());
         assertTrue(mizutsune.getVoieExtinction());
     }
+
+    @Test
+    public void testDialogue()
+    {
+        assertEquals("Happy Hunting!",darlene.dialogue("Happy Hunting!"));
+        assertEquals("GROAR GROAR !('Je suis invincible!')",mizutsune.dialogue("Je suis invincible!"));
+    }
 }
 
