@@ -1,9 +1,9 @@
 Feature: Comment chasser un monstre selon Christian ?
-  En tant que Christian
-  Je veux chasser un monstre
-  Afin que la population des monstres se réduise
+  En tant spectateur Christian
+  Je veux connaître la nature des acteurs de la sitcom
+  Afin que je puisse connaitre davantage ma série
 
-  Scenario: Christian chasse le monstre mizutsune
-    Given Christian veut chasser le mizutsune
-    When Christian chasse le mizutsune
-    Then la population de mizutsune diminue de 1 (Christian)
+  Scenario: Christian connait la nature des acteurs
+    Given Christian
+    When Christian demande quelle est la nature des acteurs de la série
+    Then renvoie la nature de l'acteur de la série
